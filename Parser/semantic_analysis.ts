@@ -1,10 +1,15 @@
 import { PYBytecode } from "../Python/python_bytecode.ts";
 import * as parse_consts from "./parse_consts.ts"
+import * as assign_operator from "./assign_operator.ts"
 
 const analysis = [
     {
         "module": parse_consts,
         "name": "parse_consts.ts"
+    },
+    {
+        "module": assign_operator,
+        "name": "assign_operator.ts"
     }
 ]
 

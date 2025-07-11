@@ -1,5 +1,5 @@
 import {PYObject} from "./pyobject.ts"
-class PYFloat extends PYObject {
+export class PYFloat extends PYObject {
     num: number = 0;
     constructor(value: number | string) {
         super();

@@ -7,3 +7,6 @@ export function get_value_type(val: string): string {
     }
     return type;
 }
+export function deleteSpaces(str: string): string {
+   return str.replace(/\s/g, "");
+}

@@ -14,6 +14,7 @@ export class PY_AST {
                 this.Codes.push(analyzed[0])
             }
         }
+        console.log(this.Codes)
     }
     execute() {
         for (const code of this.Codes) {

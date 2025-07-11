@@ -1,5 +1,5 @@
 import {PYObject} from "./pyobject.ts"
-class PYInt extends PYObject {
+export class PYInt extends PYObject {
     num: bigint = 0n;
     constructor(value: bigint | number | string) {
         super();

@@ -1,4 +1,4 @@
 import {PYObject} from "./pyobject.ts"
-class PYBool extends PYObject {
+export class PYBool extends PYObject {
     
 }
