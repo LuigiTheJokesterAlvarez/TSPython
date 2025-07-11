@@ -1,7 +1,7 @@
 import {PYStack} from "./python_stack.ts"
 import { PYBytecode, PYBytecodeType } from "./python_bytecode.ts";
-import { PYInt } from "../Objects/intobject.ts";
 import { deleteSpaces } from "../utils.ts";
+import { PYNumber } from "../Objects/numberobject.ts";
 export class PY_VM {
     Stack: PYStack = new PYStack;
     STORE_VAR(name: string, type: string, val: any): number {
@@ -11,15 +11,16 @@ export class PY_VM {
     ADD_SELF(name: string, otherobj: string) {
         const variable = this.Stack.get_variable(name)
         switch (true) {
-            case variable instanceof PYInt:
+            case variable instanceof PYNumber:
                 // if the other object is a variable
                 if (deleteSpaces(otherobj) in this.Stack.ConstantMap) {
                     const othervar = this.Stack.get_variable(deleteSpaces(otherobj))
                     variable.__addself__(othervar)
                 } else {
-                    const Temp_Obj = new PYInt(otherobj)
+                    const Temp_Obj = new PYNumber(otherobj)
                     variable.__addself__(Temp_Obj)
                 }
+                break
         }
     }
     RunBytecode(ByteCodeResult: PYBytecode) {

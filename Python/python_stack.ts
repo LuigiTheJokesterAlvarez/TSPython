@@ -1,5 +1,4 @@
-import { PYFloat } from "../Objects/floatobject.ts";
-import { PYInt } from "../Objects/intobject.ts";
+import { PYNumber } from "../Objects/numberobject.ts";
 
 export class PYStack {
     // deno-lint-ignore no-explicit-any
@@ -7,11 +6,8 @@ export class PYStack {
     ConstantMap: Record<string, number> = {};
     make_variable(name: string, type: string, val: any): number {
         switch (type) {
-            case "INT":
-                val = new PYInt(val)
-            break
-            case "FLOAT":
-                val = new PYFloat(val)
+            case "NUMBER":
+                val = new PYNumber(val)
             break
             case "STRING":
                 val = String(val)
